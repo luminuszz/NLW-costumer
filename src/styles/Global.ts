@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const sizes = {
   desktop: '1100px',
+  tablet: '700px',
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -61,7 +62,8 @@ body  {
 }
 
 body,input,button,textarea,#__next {
-  font: 500 1.6rem var(--font-secondary)
+  font: 500 1.6rem var(--font-secondary);
+  color: var(--color-text-base);
 }
 
 

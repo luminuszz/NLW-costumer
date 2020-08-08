@@ -1,33 +1,47 @@
-import Link from 'next/link';
-import React from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { FormHandles, SubmitHandler } from '@unform/core';
+import { Input, Header, TeacherItem } from 'components';
+import React, { useRef, useCallback } from 'react';
 
-import backIcon from '../../assets/back.svg';
-import logoImg from '../../assets/logo.svg';
-import {
-  Container,
-  Header,
-  ToBar,
-  HeaderContent,
-} from '../../styles/teacherlist';
+import { Container, InputControl, Form, TeacherListContent } from './styles';
+
+interface FormRequest {
+  subject: string;
+  week_day: string;
+  time: string;
+}
 
 const TeacherList: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
+
+  const HandleSubmit: SubmitHandler<FormRequest> = useCallback(data => {
+    console.log(data);
+  }, []);
+
   return (
     <Container>
-      <Header>
-        <ToBar>
-          <Link href="/">
-            <a>
-              <img src={backIcon} alt="Voltar" />
-            </a>
-          </Link>
+      <Header title="Esses sãos os proffys disponíveis">
+        <Form ref={formRef} onSubmit={HandleSubmit}>
+          <InputControl>
+            <label htmlFor="subject">Matéria</label>
+            <Input id="subject" name="subject" />
+          </InputControl>
 
-          <img src={logoImg} alt="Logo" />
-        </ToBar>
+          <InputControl>
+            <label htmlFor="week_day">Dia da semana</label>
+            <Input id="week_day" name="week_day" />
+          </InputControl>
 
-        <HeaderContent>
-          <strong>Estes são os proffys disponíves.</strong>
-        </HeaderContent>
+          <InputControl>
+            <label htmlFor="time">Hora</label>
+            <Input id="time" name="time" />
+          </InputControl>
+        </Form>
       </Header>
+
+      <TeacherListContent>
+        <TeacherItem />
+      </TeacherListContent>
     </Container>
   );
 };

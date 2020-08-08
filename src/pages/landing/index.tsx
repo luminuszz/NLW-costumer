@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
 import React from 'react';
 
-import classIcon from '../assets/give-classes.svg';
-import landingImg from '../assets/landing.svg';
-import logoImg from '../assets/logo.svg';
-import purpleHeartIcon from '../assets/purple-heart.svg';
-import studyIcon from '../assets/study.svg';
+import classIcon from '../../assets/give-classes.svg';
+import landingImg from '../../assets/landing.svg';
+import logoImg from '../../assets/logo.svg';
+import purpleHeartIcon from '../../assets/purple-heart.svg';
+import studyIcon from '../../assets/study.svg';
 import {
   Container,
   Content,
@@ -14,7 +13,7 @@ import {
   LogoContainer,
   Connections,
   BannerImg,
-} from '../styles/lading';
+} from './styles';
 
 const Landing: React.FC = () => {
   return (
@@ -30,14 +29,14 @@ const Landing: React.FC = () => {
         </BannerImg>
 
         <ContainerButtons>
-          <Link href="/teacherform">
+          <Link href="/teacherlist ">
             <a>
               <img src={studyIcon} alt="" />
               Estudar
             </a>
           </Link>
 
-          <Link href="/teacherlist">
+          <Link href="/teacherform">
             <a>
               <img src={classIcon} alt="" />
               Dar aula

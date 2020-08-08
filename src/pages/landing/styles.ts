@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { sizes } from '../Global';
+import { sizes } from '../../styles/Global';
 
 export const Container = styled.div`
   width: 100vw;

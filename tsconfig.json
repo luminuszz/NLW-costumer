@@ -1,6 +1,16 @@
 {
   "compilerOptions": {
     "target": "es5",
+
+
+    "baseUrl": "./src",
+
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/assets/*": ["assets/*"],
+      "@/styles/*": ["styles/*"]
+    },
+
     "lib": [
       "dom",
       "dom.iterable",
@@ -23,6 +33,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
+   
   "exclude": [
     "node_modules"
   ]
