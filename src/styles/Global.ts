@@ -7,7 +7,7 @@ export const sizes = {
 
 export const GlobalStyle = createGlobalStyle`
 
-  
+
 
 
  * {
@@ -35,7 +35,8 @@ export const GlobalStyle = createGlobalStyle`
   --color-button-text: #FFFFFF;
   --color-box-base: #FFFFFF;
   --color-box-footer: #FAFAFC;
-
+  --color-text-span: #C1BCCC;
+  --color-text-span-error: #e34439;
   --font-primary: 'Archivo';
   --font-secondary: 'Poppins';
 

@@ -1,5 +1,9 @@
 import { sizes } from '@/styles/Global';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface HeaderContentProps {
+  ishaveFormDown: boolean;
+}
 
 export const Container = styled.header`
   display: flex;
@@ -37,16 +41,30 @@ export const TopBar = styled.div`
   }
 `;
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled.div<HeaderContentProps>`
   width: 90%;
   margin: 0 auto;
   position: relative;
   margin: 3.2rem auto;
 
+  ${props =>
+    props.ishaveFormDown &&
+    css`
+      margin-bottom: 6.4rem;
+    `}
+
   strong {
     font: 700 3.6rem var(--font-primary);
     line-height: 4.2rem;
     color: var(--color-title-in-primary);
+  }
+
+  p {
+    max-width: 30rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: var(--color-text-in-primary);
+    margin-top: 2.4rem;
   }
 
   @media (min-width: ${sizes.tablet}) {

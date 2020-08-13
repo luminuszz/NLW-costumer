@@ -1,6 +1,8 @@
 import { useField } from '@unform/core';
 import React, { InputHTMLAttributes, useRef, useEffect } from 'react';
 
+import { Container } from './styles';
+
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
 }
@@ -8,7 +10,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<Props> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const { defaultValue, fieldName, registerField } = useField(name);
+  const { defaultValue, fieldName, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -19,7 +21,10 @@ const Input: React.FC<Props> = ({ name, ...rest }) => {
   }, [registerField, fieldName]);
 
   return (
-    <input type="text" defaultValue={defaultValue} ref={inputRef} {...rest} />
+    <Container isErrored={!!error}>
+      <input type="text" defaultValue={defaultValue} ref={inputRef} {...rest} />
+      {error && <span>{error}</span>}
+    </Container>
   );
 };
 

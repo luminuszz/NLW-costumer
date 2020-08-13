@@ -7,9 +7,11 @@ import { Container, TopBar, HeaderContent } from './styles';
 
 interface Props {
   title: string;
+  description?: string;
+  isUp?: string;
 }
 
-const Header: React.FC<Props> = ({ title, children }) => {
+const Header: React.FC<Props> = ({ title, children, description }) => {
   return (
     <Container>
       <TopBar>
@@ -22,8 +24,10 @@ const Header: React.FC<Props> = ({ title, children }) => {
         <img src={logoImg} alt="Proffy" />
       </TopBar>
 
-      <HeaderContent>
+      <HeaderContent ishaveFormDown>
         <strong>{title}</strong>
+
+        {description && <p>{description}</p>}
 
         {children}
       </HeaderContent>

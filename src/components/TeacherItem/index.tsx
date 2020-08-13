@@ -1,5 +1,6 @@
 import whatsIcon from 'assets/whatsapp.svg';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+import { formatValue } from 'utils';
 
 import {
   Container,
@@ -8,7 +9,32 @@ import {
   TeacherItemFooter,
 } from './styles';
 
-const TeacherItem: React.FC = () => {
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+  whatsapp: string;
+  bio: string;
+}
+
+interface StaticProps {
+  id: string;
+  subject: string;
+  cost: number;
+  user: User;
+}
+
+interface Props {
+  data: StaticProps;
+}
+
+const TeacherItem: React.FC<Props> = ({ data }) => {
+  const [teacher] = useState<StaticProps>(data);
+
+  const formatedCost = useMemo(() => {
+    return formatValue(teacher.cost);
+  }, [teacher]);
+
   return (
     <Container>
       <TeacherItemHeader>
@@ -18,25 +44,23 @@ const TeacherItem: React.FC = () => {
         />
 
         <div>
-          <strong>Davi Ribeiro</strong>
-          <span>Quimica</span>
+          <strong>{teacher.user.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </TeacherItemHeader>
 
       <TeacherItemBody>
         <p>
-          Entusiasta das melhores teconologias de química avançada
+          {teacher.user.bio}
           <br />
           <br />
-          Apaixonado por explodir coisas em laboratorio e por mudar a vida das
-          pessoas.
         </p>
       </TeacherItemBody>
 
       <TeacherItemFooter>
         <p>
           Preço/hora
-          <strong>R$ 90,0</strong>
+          <strong>{formatedCost}</strong>
         </p>
         <button type="button">
           <img src={whatsIcon} alt="Entrar em contato" />

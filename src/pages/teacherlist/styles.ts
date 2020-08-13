@@ -22,7 +22,7 @@ export const Form = styled(UnforForm)`
 
   @media (min-width: ${sizes.tablet}) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     position: absolute;
     bottom: -28px;
@@ -34,19 +34,6 @@ export const InputControl = styled.div`
 
   label {
     font-size: 1.4rem;
-  }
-
-  input {
-    width: 100%;
-    height: 5.6rem;
-    margin-top: 0.8rem;
-    padding: 0 1.6rem;
-
-    border-radius: 0.8rem;
-    border: 1px solid var(--color-line-in-white);
-    background-color: var(--color-input-background);
-
-    outline: 0;
   }
 
   & + & {
@@ -75,7 +62,30 @@ export const InputControl = styled.div`
   }
 `;
 
-// Teacher List
+export const SearchButton = styled.button`
+  width: 100%;
+  height: 5.6rem;
+
+  border: 0;
+  border-radius: 0.8rem;
+  background-color: var(--color-secundary);
+  margin-top: 3.2rem;
+
+  color: var(--color-button-text);
+  font: 700 1.6rem var(--font-primary);
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color-secundary-dark);
+  }
+`;
 
 export const TeacherListContent = styled.main`
   margin: 3.2rem auto;

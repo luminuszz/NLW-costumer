@@ -8,7 +8,9 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/assets/*": ["assets/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/services/*": ["services/*"],
+      "@/validators/*": ["validators/*"]
     },
 
     "lib": [
@@ -33,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-   
+
   "exclude": [
     "node_modules"
   ]

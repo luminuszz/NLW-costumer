@@ -1,5 +1,7 @@
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import { api } from 'services/api';
 
 import classIcon from '../../assets/give-classes.svg';
 import landingImg from '../../assets/landing.svg';
@@ -15,7 +17,22 @@ import {
   BannerImg,
 } from './styles';
 
-const Landing: React.FC = () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await api.get('users/connections');
+
+  return {
+    props: {
+      connections: response.data,
+    },
+  };
+};
+
+type StaticProps = {
+  connections: number;
+};
+type Props = StaticProps & InferGetStaticPropsType<typeof getStaticProps>;
+
+const Landing: React.FC<Props> = ({ connections }) => {
   return (
     <Container>
       <Content>
@@ -45,11 +62,12 @@ const Landing: React.FC = () => {
         </ContainerButtons>
 
         <Connections>
-          Total de conexões já realizadas
+          {`Total de ${connections} conexões já realizadas`}
           <img src={purpleHeartIcon} alt="Heart" />
         </Connections>
       </Content>
     </Container>
   );
 };
+
 export default Landing;
