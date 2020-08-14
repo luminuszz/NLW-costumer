@@ -10,7 +10,9 @@
       "@/assets/*": ["assets/*"],
       "@/styles/*": ["styles/*"],
       "@/services/*": ["services/*"],
-      "@/validators/*": ["validators/*"]
+      "@/validators/*": ["validators/*"],
+      "@/hooks/*": ["hooks/*"]
+
     },
 
     "lib": [
@@ -32,11 +34,15 @@
   },
   "include": [
     "next-env.d.ts",
+    "_styles.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],
-
+  "files": [
+    "src/_styles.d.ts"
+  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+
 }

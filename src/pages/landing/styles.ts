@@ -12,7 +12,7 @@ export const Container = styled.div`
   align-items: center;
 
   color: var(--color-text-in-primary);
-  background: var(--color-primary);
+  background: ${props => props.theme.colors.colorPrimary};
 `;
 
 export const Content = styled.div`
@@ -149,4 +149,8 @@ export const Connections = styled.span`
   @media (min-width: 1100) {
     justify-self: end;
   }
+`;
+
+export const Toogle = styled.div`
+  margin-left: 3.5rem;
 `;

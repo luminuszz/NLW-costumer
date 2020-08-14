@@ -13,4 +13,8 @@ module.exports = withImages({
       },
     ];
   },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 });

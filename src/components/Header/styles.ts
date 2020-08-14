@@ -8,7 +8,7 @@ interface HeaderContentProps {
 export const Container = styled.header`
   display: flex;
   flex-direction: column;
-  background-color: var(--color-primary);
+  background-color: ${props => props.theme.colors.colorPrimary};
 
   @media (min-width: ${sizes.tablet}) {
     height: 340px;

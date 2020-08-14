@@ -1,6 +1,8 @@
+import { useTheme } from 'hooks/ThemeContext';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import React from 'react';
+import ReactToogle from 'react-switch';
 import { api } from 'services/api';
 
 import classIcon from '../../assets/give-classes.svg';
@@ -15,6 +17,7 @@ import {
   LogoContainer,
   Connections,
   BannerImg,
+  Toogle,
 } from './styles';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -33,6 +36,8 @@ type StaticProps = {
 type Props = StaticProps & InferGetStaticPropsType<typeof getStaticProps>;
 
 const Landing: React.FC<Props> = ({ connections }) => {
+  const { toogleTheme, theme } = useTheme();
+
   return (
     <Container>
       <Content>
@@ -66,6 +71,17 @@ const Landing: React.FC<Props> = ({ connections }) => {
           <img src={purpleHeartIcon} alt="Heart" />
         </Connections>
       </Content>
+      <Toogle>
+        <ReactToogle
+          onChange={() => toogleTheme}
+          checked={theme.title === 'dark'}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          height={10}
+          width={40}
+          handleDiameter={20}
+        />
+      </Toogle>
     </Container>
   );
 };

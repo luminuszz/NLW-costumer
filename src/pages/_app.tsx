@@ -1,27 +1,22 @@
+import { AppProvider } from 'hooks';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { GlobalStyle } from '../styles/Global';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const [isMonted, setIsMonted] = useState(false);
+
+  useEffect(() => {
+    setIsMonted(true);
+  }, []);
+
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <GlobalStyle />
-
       <Head>
         <title>Proffy</title>
         <link
@@ -33,8 +28,24 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
       </Head>
+      {isMonted && (
+        <AppProvider>
+          <GlobalStyle />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
 
-      <Component {...pageProps} />
+          <Component {...pageProps} />
+        </AppProvider>
+      )}
     </>
   );
 };
