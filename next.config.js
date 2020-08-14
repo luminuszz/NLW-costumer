@@ -5,6 +5,14 @@ module.exports = withImages({
   trailingSlash: true,
   pageExtensions: ['jsx', 'tsx'],
   reactStrictMode: true,
+  async exportPathMap(
+    defaultPathMap,
+    { dev = false, dir, outDir, distDir, buildId },
+  ) {
+    return {
+      '/': { page: '/landing' },
+    };
+  },
   async rewrites() {
     return [
       {

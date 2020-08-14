@@ -1,3 +1,8 @@
+import classIcon from 'assets/give-classes.svg';
+import landingImg from 'assets/landing.svg';
+import logoImg from 'assets/logo.svg';
+import purpleHeartIcon from 'assets/purple-heart.svg';
+import studyIcon from 'assets/study.svg';
 import { useTheme } from 'hooks/ThemeContext';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
@@ -5,11 +10,6 @@ import React from 'react';
 import ReactToogle from 'react-switch';
 import { api } from 'services/api';
 
-import classIcon from '../../assets/give-classes.svg';
-import landingImg from '../../assets/landing.svg';
-import logoImg from '../../assets/logo.svg';
-import purpleHeartIcon from '../../assets/purple-heart.svg';
-import studyIcon from '../../assets/study.svg';
 import {
   Container,
   Content,

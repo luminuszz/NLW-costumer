@@ -23,6 +23,7 @@ const ThemeProvider: React.FC = ({ children }) => {
 
   const toogleTheme = useCallback(() => {
     setTheme(theme.title === 'dark' ? ligth : dark);
+    console.log('trocu');
   }, [theme, setTheme]);
 
   return (

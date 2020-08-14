@@ -17,17 +17,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Head>
-        <title>Proffy</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       {isMonted && (
         <AppProvider>
           <GlobalStyle />
@@ -42,7 +31,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
             draggable
             pauseOnHover
           />
-
+          <Head>
+            <title>Proffy</title>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap"
+              rel="stylesheet"
+            />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+              rel="stylesheet"
+            />
+          </Head>
           <Component {...pageProps} />
         </AppProvider>
       )}
